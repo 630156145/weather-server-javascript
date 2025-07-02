@@ -1,0 +1,39 @@
+{
+  "name": "mcp-quickstart-mjs",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "type": "module",
+  "bin": {
+    "weather": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs",
+    "serve": "npx mcp-proxy --port 8080 --debug node index.mjs",
+    "test": "node test-client.js"
+  },
+  "files": [
+    "index.mjs",
+    "test-client.js"
+  ],
+  "keywords": [
+    "mcp",
+    "weather",
+    "javascript",
+    "esm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "A Weather MCP Server built with pure JavaScript ES Modules",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "mcp-proxy": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
