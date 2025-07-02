@@ -2,6 +2,10 @@
 
 一个使用纯 JavaScript ES Modules 构建的天气 MCP 服务器，支持多种传输方式。
 
+<a href="https://glama.ai/mcp/servers/@630156145/weather-server-javascript">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@630156145/weather-server-javascript/badge" alt="Weather Server MCP server" />
+</a>
+
 ## 功能特性
 
 - 获取美国各州的天气警报信息
