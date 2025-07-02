@@ -17,9 +17,9 @@ let feishuService = null;
 const feishuConfig = getFeishuConfig();
 if (feishuConfig) {
   feishuService = new FeishuService(feishuConfig.feishuAppId, feishuConfig.feishuAppSecret);
-  console.error(`飞书服务已初始化，App ID: ${maskApiKey(feishuConfig.feishuAppId)}`);
+  console.log(`飞书服务已初始化，App ID: ${maskApiKey(feishuConfig.feishuAppId)}`);
 } else {
-  console.error("飞书服务未初始化：缺少配置信息");
+  console.log("飞书服务未初始化：缺少配置信息");
 }
 
 // Helper function for making NWS API requests
@@ -231,18 +231,18 @@ server.tool(
         if (urlMatch) {
           docType = urlMatch[1];
           extractedDocId = urlMatch[2];
-          console.error(`识别文档类型：${docType}，文档ID：${extractedDocId}`);
+          console.log(`识别文档类型：${docType}，文档ID：${extractedDocId}`);
         } else {
           // 尝试匹配其他可能的URL格式
           const alternativeMatch = docId.match(/(?:feishu\.cn|larksuite\.com)\/[^/]*\/([^/?#]+)/);
           if (alternativeMatch) {
             extractedDocId = alternativeMatch[1];
-            console.error(`使用备选匹配提取文档ID：${extractedDocId}`);
+            console.log(`使用备选匹配提取文档ID：${extractedDocId}`);
           }
         }
       }
 
-      console.error(`正在获取飞书文档：${extractedDocId}`);
+      console.log(`正在获取飞书文档：${extractedDocId}`);
       
       let content;
       // 根据识别的文档类型选择处理方式
@@ -268,7 +268,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `获取飞书文档失败：${error.message}。请确认文档ID或URL格式正确，支持的格式：doc、docx、sheet、sheets、mindnote、bitable、file、slides、wiki`,
+            text: `获取飞书文档失败：${error.message}`,
           },
         ],
       };
@@ -315,7 +315,7 @@ async function main() {
 
     // SSE endpoint 
     app.get("/sse", async (req, res) => {
-      console.error("New SSE connection established");
+      console.log("New SSE connection established");
       
       const transport = new SSEServerTransport("/messages", res);
       await server.connect(transport);
@@ -329,14 +329,14 @@ async function main() {
 
     // Start HTTP server
     app.listen(port, () => {
-      console.error(`Weather and Feishu MCP Server running on http://localhost:${port}`);
-      console.error(`SSE endpoint: http://localhost:${port}/sse`);
+      console.log(`Weather and Feishu MCP Server running on http://localhost:${port}`);
+      console.log(`SSE endpoint: http://localhost:${port}/sse`);
     });
   } else {
     // Default to stdio transport
     const transport = new StdioServerTransport();
     await server.connect(transport);
-    console.error("Weather and Feishu MCP Server running on stdio");
+    console.log("Weather and Feishu MCP Server running on stdio");
   }
 }
 
