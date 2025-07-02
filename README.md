@@ -29,19 +29,19 @@ npm start
 node index.mjs
 
 # 绝对路径运行（推荐用于MCP客户端配置）
-node /完整/路径/到/weather-server-typescript/index.mjs
+node /完整/路径/到/weather-server-javascript/index.mjs
 
 # 示例绝对路径
-node /Users/username/projects/weather-server-typescript/index.mjs
+node /Users/username/projects/weather-server-javascript/index.mjs
 # 或在Windows上
-node C:\Users\username\projects\weather-server-typescript\index.mjs
+node C:\Users\username\projects\weather-server-javascript\index.mjs
 ```
 
 **获取当前项目绝对路径：**
 ```bash
 # 在项目目录下运行，获取绝对路径
 pwd
-# 输出类似：/Users/username/projects/weather-server-typescript
+# 输出类似：/Users/username/projects/weather-server-javascript
 
 # 完整的绝对路径命令
 node $(pwd)/index.mjs
@@ -127,7 +127,7 @@ node test-client.js
   "mcpServers": {
     "weather": {
       "command": "node",
-      "args": ["/Users/username/projects/weather-server-typescript/index.mjs"]
+      "args": ["/Users/username/projects/weather-server-javascript/index.mjs"]
     }
   }
 }
@@ -144,7 +144,7 @@ node test-client.js
   "mcpServers": {
     "weather": {
       "command": "node",
-      "args": ["C:\\Users\\username\\projects\\weather-server-typescript\\index.mjs"]
+      "args": ["C:\\Users\\username\\projects\\weather-server-javascript\\index.mjs"]
     }
   }
 }
@@ -202,7 +202,7 @@ echo '{
 ## 项目结构
 
 ```
-weather-server-typescript/
+weather-server-javascript/
 ├── index.mjs              # 主服务器文件
 ├── test-client.js         # 测试客户端
 ├── package.json          # 项目配置
@@ -211,9 +211,7 @@ weather-server-typescript/
 
 ## 开发优势
 
-### ✨ 相比TypeScript版本的优势：
 - **无编译步骤** - 直接运行，开发更快
-- **更轻量** - 减少了TypeScript相关依赖
 - **简化部署** - 不需要构建过程
 - **兼容性更好** - 纯JavaScript，兼容性更广
 
@@ -250,13 +248,3 @@ npm run serve
 6. **Windows 路径问题**:
    - 使用正斜杠 `/` 或双反斜杠 `\\` 
    - 避免使用单反斜杠 `\`（会被转义）
-
-## 从TypeScript迁移
-
-这个项目已经从TypeScript成功迁移到纯JavaScript ES Modules：
-
-- ✅ 移除了所有TypeScript类型注解
-- ✅ 转换为 `.mjs` 文件格式
-- ✅ 移除了编译步骤
-- ✅ 保持了完全相同的功能
-- ✅ 向后兼容所有MCP客户端
