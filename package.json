@@ -18,16 +18,21 @@
   "keywords": [
     "mcp",
     "weather",
+    "feishu",
+    "lark",
     "javascript",
     "esm"
   ],
   "author": "",
   "license": "ISC",
-  "description": "A Weather MCP Server built with pure JavaScript ES Modules",
+  "description": "A Weather and Feishu MCP Server built with pure JavaScript ES Modules",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.4.0",
+    "@larksuiteoapi/node-sdk": "^1.44.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "yargs": "^17.7.2",
     "zod": "^3.25.67"
   },
   "devDependencies": {
