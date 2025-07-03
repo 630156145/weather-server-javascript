@@ -36,7 +36,7 @@ async function makeNWSRequest(url) {
     }
     return await response.json();
   } catch (error) {
-    console.error("Error making NWS request:", error);
+    console.log("Error making NWS request:", error);
     return null;
   }
 }
@@ -263,12 +263,12 @@ server.tool(
         ],
       };
     } catch (error) {
-      console.error(`获取飞书文档失败：${error.message}`);
+      console.log(`获取飞书文档失败：${error.message}, ${error.response.status}, ${error.response.statusText}, ${JSON.stringify(error.response.data)}`);
       return {
         content: [
           {
             type: "text",
-            text: `获取飞书文档失败：${error.message}`,
+            text: `获取飞书文档失败：${error.message}, ${error.response.status}, ${error.response.statusText}, ${JSON.stringify(error.response.data)}`,
           },
         ],
       };
@@ -341,6 +341,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error("Fatal error in main():", error);
+  console.log("Fatal error in main():", error);
   process.exit(1);
 }); 
